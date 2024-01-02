@@ -1,8 +1,12 @@
 # student-system
 
-A student system as a web app that can Create, Read, Update, and Delete (CRUD).
+A student management system as a web app that can Create, Read, Update, and Delete (CRUD) information.
 
-![image coming soon](/public/images/png "joblancer")
+![image coming soon](/public/images/student-system.jpg)
+
+| Create | Read | Update and Delete |
+|--------------|--------------|--------------|
+| ![Create](/public/images/create.jpg) | ![Read](/public/images/read.jpg) | ![Update and Delete](/public/images/update-delete.jpg) |
 
 ## Usage
 
