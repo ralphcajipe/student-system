@@ -15,9 +15,15 @@ class StudentController extends Controller
 {
     public function index()
     {
+
+        $students = Students::whereNull('deleted_at')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+        return view('students.index', ['students' => $students]);
+        
         // This means get all data from the database that is in the students table
-        $data = array("students" => DB::table('students')->orderBy('created_at', 'desc')->simplePaginate(10));
-        return view('students.index', $data);
+        // $data = array("students" => DB::table('students')->orderBy('created_at', 'desc')->Paginate(10));
+        // return view('students.index', $data);
     }
 
     public function show($id)
@@ -28,7 +34,7 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view('students.create')->with('title', 'Add New');
+        return view('students.create')->with('title', 'Add New Student');
     }
 
     // store a new student
@@ -53,15 +59,15 @@ class StudentController extends Controller
 
             $extension = $request->file('student_image')->getClientOriginalExtension();
 
-            $filenameToStore = $filename .'_'. time().'.'.$extension;
+            $filenameToStore = $filename . '_' . time() . '.' . $extension;
 
-            $smallThumbnail =  $filename .'_'. time().'.'.$extension;
+            $smallThumbnail =  $filename . '_' . time() . '.' . $extension;
 
             $request->file('student_image')->storeAs('public/student', $filenameToStore);
 
             $request->file('student_image')->storeAs('public/student/thumbnail', $smallThumbnail);
 
-            $thumbnail = 'storage/public/student/thumbnail/'. $smallThumbnail;
+            $thumbnail = 'storage/public/student/thumbnail/' . $smallThumbnail;
 
             $this->createThumbnail($thumbnail, 150, 93);
 
@@ -95,15 +101,15 @@ class StudentController extends Controller
 
             $extension = $request->file('student_image')->getClientOriginalExtension();
 
-            $filenameToStore = $filename .'_'. time().'.'.$extension;
+            $filenameToStore = $filename . '_' . time() . '.' . $extension;
 
-            $smallThumbnail =  $filename .'_'. time().'.'.$extension;
+            $smallThumbnail =  $filename . '_' . time() . '.' . $extension;
 
             $request->file('student_image')->storeAs('public/student', $filenameToStore);
 
             $request->file('student_image')->storeAs('public/student/thumbnail', $smallThumbnail);
 
-            $thumbnail = 'storage/public/student/thumbnail/'. $smallThumbnail;
+            $thumbnail = 'storage/public/student/thumbnail/' . $smallThumbnail;
 
             $this->createThumbnail($thumbnail, 150, 93);
 

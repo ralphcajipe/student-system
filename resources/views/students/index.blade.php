@@ -45,7 +45,8 @@
                         @php $default_profile = "https://api.dicebear.com/7.x/personas/svg/".$student->first_name."-".$student->last_name.".svg" @endphp
                         <td>
                             <!-- Displays student image on index page-->
-                            <img src="{{ $student->student_image ? asset("storage/public/student/thumbnail/".$student->student_image) : $default_profile }}">
+                            <img
+                                src="{{ $student->student_image ? asset('storage/public/student/thumbnail/' . $student->student_image) : $default_profile }}">
                         </td>
                         <td class="py-4 px-6">
                             {{ $student->first_name }}
@@ -69,7 +70,7 @@
             </tbody>
         </table>
         <div class="mx-auto max-w-lg pt-6 p-4">
-            {{ $students->links() }}
+            {{ $students->links('vendor.pagination.custom') }}
         </div>
     </div>
 </section>

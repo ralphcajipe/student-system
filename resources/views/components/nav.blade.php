@@ -6,10 +6,19 @@
                 {{ $data['title'] }}
             </span>
         </a>
-        <button @click="open = !open" data-collapse-toggle="navbar-main" class="md:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="text-white">
-                <path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z"></path>
-            </svg>
+
+        <!-- Personalized greeting -->
+        @if (Auth::check())
+            <span
+                class="self-center text-sm font-semibold whitespace-nowrap -mr-20 bg-green-500 text-white px-2 py-1 rounded">
+                Hello, {{ explode(' ', Auth::user()->name)[0] }}
+            </span>
+        @endif
+
+        <!-- Hamburger button: menu -->
+        <button @click="open = !open" :class="{ 'bg-gray-600': open }" data-collapse-toggle="navbar-main"
+            class="md:hidden h-12 w-12 rounded">
+            <i class="material-icons text-white">menu</i>
         </button>
 
         <div x-show="open" class="w-full md:block md:w-auto" id="navbar-main">

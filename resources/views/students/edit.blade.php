@@ -141,17 +141,39 @@
         </form>
 
         <!-- Delete button -->
-        <form action="/student/{{ $student->id }}" method="POST">
+        <form id="delete-form" action="/student/{{ $student->id }}" method="POST">
             @method('delete')
             @csrf
 
-            <button type="submit"
+            <button id="delete-button"
                 class="w-full mt-2 bg-red-600 hover:bg-red-700 text-white 
-    font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"
-                type="submit">
+        font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"
+                type="button">
                 Delete
             </button>
         </form>
+
+        <!-- Delete button's JavaScript to use SweetAlert2 -->
+        <script>
+        document.getElementById('delete-button').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Are you sure?',
+                html: '<b>Delete</b> {{ $student->first_name }} {{ $student->last_name }}',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel',
+                confirmButtonColor: '#3085d6', // Blue color
+                cancelButtonColor: '#d33' // Modern red color
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form').submit();
+                }
+            });
+        });
+        </script>
 
     </section>
 </main>
