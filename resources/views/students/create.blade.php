@@ -105,14 +105,17 @@
 
             <!-- Student Image -->
             <div class="mb-6 pt-3 rounded bg-gray-200">
-                <label for="student_image"
-                    class="block text-gray-700 text-sm 
-                font-bold mb-2 ml-3">Student Image</label>
-                <input type="file" name="student_image"
-                    class="bg-gray-200 rounded w-full
-                text-gray-700 focus:outline-none border-b-4 border-gray-400
-                px-3"
-                    autocomplete="off" >
+                <label for="student_image" class="block text-gray-700 text-sm font-bold mb-2 ml-3">Student Image</label>
+                <label for="student_image" class="cursor-pointer">
+                    <div id="image-preview" class="max-w-sm p-6 mb-4 bg-gray-100 border-dashed border-2 border-gray-400 rounded-lg items-center mx-auto text-center">
+                        <input id="student_image" type="file" class="hidden" accept="image/*" name="student_image" onchange="loadFile(event)" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-700 mx-auto mb-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                        </svg>
+                        <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-700">Upload Image</h5>
+                        <img id="output" class="max-h-48 rounded-lg mx-auto" alt="" />
+                    </div>
+                </label>
                 @error('student_image')
                     <p class="text-red-500 text-xs mt-2 p-1">
                         {{ $message }}
@@ -120,8 +123,18 @@
                 @enderror
             </div>
 
+            <script>
+                var loadFile = function(event) {
+                    var output = document.getElementById('output');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                    output.onload = function() {
+                        URL.revokeObjectURL(output.src) // free memory
+                    }
+                };
+            </script>
+
             <button type="submit"
-                class="bg-purple-600 hover:bg-purple-700 text-white 
+                class="bg-blue-500 hover:bg-blue-400 text-white 
             font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"
                 type="submit">
                 Add New

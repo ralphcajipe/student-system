@@ -5,7 +5,7 @@
                 <span class="material-icons text-white mr-1">
                     add
                 </span>
-                Add New
+                Add Student
             </a>
         </li>
         <li>

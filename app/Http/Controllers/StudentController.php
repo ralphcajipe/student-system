@@ -20,7 +20,7 @@ class StudentController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
         return view('students.index', ['students' => $students]);
-        
+
         // This means get all data from the database that is in the students table
         // $data = array("students" => DB::table('students')->orderBy('created_at', 'desc')->Paginate(10));
         // return view('students.index', $data);
@@ -50,7 +50,7 @@ class StudentController extends Controller
 
         if ($request->hasFile('student_image')) {
             $request->validate([
-                "student_image" => 'mimes:jpeg,jpg,webp,png,bmp,tiff |max:4096'
+                "student_image" => 'mimes:jpeg,jpg,webp,png,bmp,tiff|max:4096'
             ]);
 
             $filenameWithExtension = $request->file('student_image');
