@@ -9,7 +9,7 @@ A student management system as a web app that can Create, Read, Update, and Dele
 ![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
 ![AlpineJS](https://img.shields.io/badge/-AlpineJS-8DB500?style=flat-square&logo=alpine.js&logoColor=white)
 
-![image coming soon](/public/images/student-system.jpg)
+![image coming soon](/public/images/student-system-2.jpg)
 
 | Create                               | Read                             | Update and Delete                                      |
 | ------------------------------------ | -------------------------------- | ------------------------------------------------------ |
