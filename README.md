@@ -1,6 +1,6 @@
 # student-system
 
-A student management system as a web app that can Create, Read, Update, and Delete (CRUD) information.
+A student management system as a web app that can Create, Read, Update, and Delete (CRUD) student information.
 
 ![PHP](https://img.shields.io/badge/-PHP-777BB4?style=flat-square&logo=php&logoColor=white)
 ![Laravel](https://img.shields.io/badge/-Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white)
