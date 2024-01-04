@@ -69,6 +69,7 @@
                 @endforeach
             </tbody>
         </table>
+        <!-- Custom Pagination -->
         <div class="mx-auto max-w-lg pt-6 p-4">
             {{ $students->links('vendor.pagination.custom') }}
         </div>

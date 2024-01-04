@@ -116,11 +116,21 @@
                         <img id="output" class="max-h-48 rounded-lg mx-auto" alt="" />
                     </div>
                 </label>
+                <!-- Student Image's Error Handler -->
                 @error('student_image')
-                    <p class="text-red-500 text-xs mt-2 p-1">
+                    <p id="error-message" class="text-red-500 text-sm mt-2 p-1">
                         {{ $message }}
                     </p>
                 @enderror
+
+                <script>
+                    window.onload = function() {
+                        const errorMessage = document.getElementById('error-message');
+                        if (errorMessage) {
+                            errorMessage.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                </script>
             </div>
 
             <script>
