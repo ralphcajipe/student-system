@@ -11,7 +11,7 @@
         @if (Auth::check())
             <span
                 class="self-center text-sm font-semibold whitespace-nowrap -mr-20 bg-green-500 text-white px-2 py-1 rounded">
-                Hello, {{ explode(' ', Auth::user()->name)[0] }}
+                Welcome, {{ explode(' ', Auth::user()->name)[0] }}
             </span>
         @endif
 
